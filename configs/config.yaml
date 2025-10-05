@@ -1,0 +1,50 @@
+paths:
+  data_dir: ./data
+  train_csv: data/input/train_sample.csv
+  test_csv: data/input/test.csv
+  out_dir: ./data/output
+  models_dir: ./data/output/models
+  eda_dir: ./data/output/eda
+  features_dir: ./data/output/features
+  stream_dir: ./data/output/stream
+  reports_dir: ./data/output/reports
+
+training:
+  model_type: "lgbm"     # or "lgbm" / "logistic"
+  test_size: 0.2
+  random_state: 42
+  n_estimators: 300
+  class_weight: "balanced_subsample"
+  target_precision: 0.90
+  target: is_attributed        # change if your label is named differently
+  target_aliases: [label, target, y, is_fraud]
+
+simulate:
+  sleep_ms: 100
+  batch_size: 1
+
+report:
+  top_k_entities: 10
+
+io:
+  nrows: 5000000 # start with 5M; increase as your RAM allows
+  usecols: [ip, app, device, os, channel, click_time, attributed_time, is_attributed]
+
+eda:
+  min_channel_clicks: 1000
+
+evaluation:
+  threshold: 0.8574900693913728
+  metrics: ["accuracy", "precision", "recall", "f1", "roc_auc"]
+
+baseline:
+  clicks_per_ip_per_5min: 50
+  unique_channels_per_5min: 40
+
+validation:
+  mode: kfold          # or holdout / timesplit
+  kfold:
+    n_splits: 5
+    stratify: true
+    shuffle: true
+    random_state: 42

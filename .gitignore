@@ -1,0 +1,21 @@
+# Python cache / tooling
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+env/
+venv/
+.DS_Store
+
+# Project outputs (ignore whole tree)
+data/output/
+
+# Raw inputs (keep out of repo)
+data/input/
+
+# Models (if you ever output outside data/output/)
+*.pkl
+
+# Allow curated examples if you want to showcase a few artifacts
+# (create data/examples and put visuals there)
+!data/examples/**
