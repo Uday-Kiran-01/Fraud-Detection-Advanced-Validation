@@ -1,4 +1,4 @@
-# 🚀 Ad Click Fraud Detection — Advanced Validation
+# 🚀 Ad Click Fraud Detection - Advanced Validation
 
 End-to-end machine learning pipeline for **ad click fraud detection** with advanced validation.  
 Includes full training, evaluation, A/B comparison, threshold tuning, and testset scoring.
